@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../mixins/validation_mixins.dart';
 
-
 class LoginScreen extends StatefulWidget{
   createState() {
     return LoginScreenState();
