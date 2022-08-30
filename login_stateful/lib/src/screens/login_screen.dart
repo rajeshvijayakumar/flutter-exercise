@@ -16,9 +16,7 @@ final formKey = GlobalKey<FormState>();
  Widget build(context) {
     return Container(
       margin: EdgeInsets.all(20.0),
-      child: Form(
-        key: formKey,
-        child: Column(
+      child: Column(
           children: [
             emailField(),
             passwordField(),
@@ -26,8 +24,7 @@ final formKey = GlobalKey<FormState>();
             submitButton(),
           ],
         ),
-      ),
-    );
+      );
   }
 
   Widget emailField() {
@@ -37,23 +34,16 @@ final formKey = GlobalKey<FormState>();
         labelText: 'Email Address',
         hintText: 'you@example.com',
       ),
-     validator: validateEmail,
-     onSaved: (value) => {
-      email = value
-     },
     );
   }
 
   Widget passwordField() {
     return TextFormField(
+      obscureText: true,
       decoration: InputDecoration(
         labelText: 'Password',
         hintText: 'Password',
       ),
-       validator: validatePassword,
-       onSaved: (newValue) => {
-        password = newValue
-       },
     );
   }
 
@@ -61,13 +51,6 @@ final formKey = GlobalKey<FormState>();
     return RaisedButton(
       color: Colors.blue,
       child: Text('Submit!'),
-    
-      onPressed: () {
-        if (formKey.currentState!.validate()) {
-          formKey.currentState!.save();
-          print('Time to post $email and $password to my API');
-        }
-      },
     );
   }
 }
